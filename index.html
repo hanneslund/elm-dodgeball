@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<title>Dodgeball</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="bundle.css" rel="stylesheet">
+
+<body class="bg-red-darkest font-mono">
+  <script src="elm.js"></script>
+  <script>
+    const highscore = Number(localStorage.getItem("highscore"))
+
+    const app = Elm.Main.fullscreen(highscore)
+
+    app.ports.saveHighscore.subscribe(
+      highscore => localStorage.setItem("highscore", highscore)
+    )
+  </script>
+</body>
